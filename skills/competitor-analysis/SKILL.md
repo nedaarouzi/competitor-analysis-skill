@@ -1,74 +1,69 @@
 ---
 name: competitor-analysis
-description: Run a marketing competitor analysis from just a company name and three competitors. Estimates each competitor's advertising, platforms, approximate budget, cost per acquisition, messaging and retargeting from public ad-library data, finds gaps in the market, and delivers a structured spreadsheet. Use when asked for competitor research, an ad landscape, or go-to-market research.
+description: Run a marketing competitor analysis from a company name and 3 to 4 competitors, and deliver an 8-tab dark-themed Excel competitor ad intelligence dashboard. Estimates each competitor's advertising, platforms, budget, CPL, messaging and remarketing from public ad data, finds gaps, and builds the workbook with a fixed script so the result is the same every time. Use for competitor research, competitor dashboards, ad landscapes or go-to-market research.
 license: MIT
 metadata:
   author: Neda Arouzi
-  version: "0.1.0"
+  version: "1.0.0"
 ---
 
-# Competitor analysis
+# Competitor analysis dashboard
 
-Produce a structured, shareable competitor analysis for a marketer who needs direction fast.
+Produces the same 8-tab Excel dashboard every time. **You do the research. A script does the layout.** Never hand-build the workbook with your own styling: the script is what makes results identical between agents and runs.
 
 ## Inputs
 
-Ask for these two things only, and only if they are missing:
+1. **Focal company** (the company the dashboard is for), plus its segment if given.
+2. **3 to 4 competitors.** If the person does not give them, research and pick the 3 to 4 most direct competitors, then say who you chose and why.
 
-1. **Company name** (the focal company or product).
-2. **Three competitors.**
-
-Do not ask for a long brief. Everything else is optional: market or country, the channel the person cares most about (for example paid social, search, CRM, content), and one real number from their own data (see "Calibrate").
-
-## Sources
-
-Use public data only. Never use confidential or internal company data unless the person supplies it for calibration in this conversation.
-
-- Public ad libraries: Meta Ad Library, Google Ads Transparency Center, LinkedIn Ad Library, TikTok Creative Center.
-- The competitors' own websites, landing pages and pricing pages.
-- Public company information and reputable news.
-
-If you cannot reach a source, say so and mark the affected cells "not available". Never invent a figure to fill a gap.
+Do not ask for anything else. Infer the industry, country and channels from the names. Optional: one or two real numbers from the focal company's own data (for example its CPL or monthly spend). If supplied, mark them verified and use them to calibrate the competitor estimates.
 
 ## Steps
 
-1. **Collect.** For each competitor, find their active ads and which platforms they run on.
-2. **Analyse the ads.** Record the headlines, primary text, angle (for example price, speed, proof, fear of missing out) and creative formats. Note whether there are signs of retargeting (for example the same offer shown at different funnel stages, or urgency and "come back" messaging).
-3. **Estimate.** For each competitor, give an approximate monthly budget and an approximate cost per acquisition (CPA). Show a range, not a single figure. State the reasoning in one line: for example the number of active ads, how long they have run, and typical costs for that channel.
-4. **Calibrate** (see below).
-5. **Find the gaps.** Compare all four companies. List angles, audiences, platforms or offers that nobody uses well, and rank the three best opportunities.
-6. **Deliver** the spreadsheet (see "Output").
+1. **Research** (public data only). For the focal company and each competitor, collect: positioning and tagline, pricing model, which of the 8 channels they are active on, ad angle, headlines, targeting signals, creative formats, CTAs, and signs of remarketing. Sources: Meta Ad Library, Google Ads Transparency Center, LinkedIn Ad Library, TikTok Creative Center, the companies' own sites and pricing pages, reputable news. If a source cannot be reached, say so and write "not available". Never invent a figure.
+2. **Estimate** monthly budget and CPL per company per channel, as ranges in GBP. Use `references/benchmarks.json` as the starting point and `references/estimation.md` for scaling rules. Give a confidence level (low, medium or high) for each company.
+3. **Write the input file** (JSON) to match `templates/input.example.json`. Field rules are in `references/input-schema.md`. The focal company's channels need a `note` where a channel is untested.
+4. **Find 6 to 9 opportunities** for the focal company, classed Immediate, 30-Day or 60-Day (rules below).
+5. **Build the workbook:**
+   ```
+   pip install openpyxl
+   python scripts/build_dashboard.py my_input.json -o acme_competitor_dashboard.xlsx
+   ```
+   The script validates the input, prints warnings or errors, and writes the file. If it reports an error, fix the JSON and run it again. Do not patch the output by hand.
+6. **Deliver** the .xlsx with a one-line summary. Say who the competitors are, that the figures are estimates, and the single biggest opportunity. Do not list the tab names.
 
-## Calibrate
+If you cannot run Python in your environment, write the JSON file, give it to the person with the command above, and say that the dashboard needs that one step to be built. Do not substitute a differently styled spreadsheet.
 
-Estimates built only from public data tend to be too high or too low. If the person gives one real number from their own data (for example their own CPA, monthly spend or conversion rate), use it as a reference point: compare each competitor with it and adjust the estimates. Say which number you used and how much the estimates moved.
+## The 8 tabs (fixed order, built by the script)
 
-If no number was given, finish the analysis, label every estimate "uncalibrated", and ask once for a single real number.
+| # | Tab | Contents |
+|---|---|---|
+| 1 | Overview | One row per company: pricing, tagline, positioning, strength, weakness, channels active, confidence |
+| 2 | {Company} Actuals | Focal company by channel. Labelled "ESTIMATED" unless verified actuals were supplied |
+| 3 | Budget Estimates | Monthly spend range per company per channel, with totals |
+| 4 | CPL Estimates | Cost per lead per company per channel, colour-coded against the benchmark |
+| 5 | Channel Benchmarks | Category budget and CPL ranges for the 8 channels |
+| 6 | Competitor Profiles | One row per company per channel: angle, copy, targeting, creative, CTA, insight |
+| 7 | Remarketing | One row per company per channel: audiences, tactic, budget, message, window, offer |
+| 8 | Opportunities | 6 to 9 prioritised opportunities |
 
-## Output
+The 8 channels are Google, Meta, LinkedIn, TikTok, Bing, YouTube, Reddit and DSP. Look at all 8 for every company, even if the answer is "not active".
 
-Create a spreadsheet with these tabs:
+## Opportunity rules
 
-| Tab | Contents |
-|---|---|
-| Summary | Three to five headlines, the top three opportunities, and the caveats |
-| Competitors | One row per competitor: platforms, active ad count, approximate monthly budget (range), approximate CPA (range), retargeting (yes, no or unclear), confidence (low, medium, high) |
-| Messaging | One row per ad: competitor, platform, headline, primary text, angle, format, first seen, source link |
-| Gaps | Ranked opportunities with the evidence for each |
-| Sources | Every link used, with the date it was checked |
+- **Immediate:** this week, little or no creative needed.
+- **30-Day:** needs some setup or creative production.
+- **60-Day:** new channels, structural changes or longer experiments.
 
-Use a Google Sheet if a Google Sheets tool is available. Otherwise create an .xlsx file, or CSV files if that is not possible. Keep the same tabs and column names every time, so results are comparable between runs.
+Common types: remarketing or RLSA gaps; winning creative not scaled; channels competitors use that the focal company has not tested; budget concentrated in high-CPL campaigns; mobile versus desktop conversion gaps; geographic over or under-investment; brand assets missing from ad copy; first-mover tests on low-competition channels. Each opportunity needs a specific action and a reason grounded in what you found.
 
 ## Honesty rules
 
-- Say clearly that the figures are estimates. They show direction, not truth. They are useful for generating ideas and for understanding the messaging competitors use.
-- Give a confidence level for each estimate. Do not present a range as a measurement.
+- All competitor figures are estimates. Show ranges, not single numbers, and say they show direction, not truth.
+- Mark focal-company figures as verified only if the person gave you the number in this conversation.
+- Public data only. Do not use confidential company data unless the person supplies it for calibration.
 - Before real budget moves, a person with judgement must check the numbers that matter.
-
-## Optional extension
-
-If the person asks, add a "Long-running ads" tab: the angles, headlines and primary text that a competitor has run for more than 45 days. An ad that survives that long is probably working, so it is a useful signal of what works.
 
 ## Keeping it current
 
-Markets move quickly, especially in technology and AI. Tell the person to re-run the analysis regularly, and keep each run's date in the Summary tab so they can compare runs.
+Markets move quickly. Tell the person to re-run the dashboard regularly. The run date is shown on every tab so runs can be compared.

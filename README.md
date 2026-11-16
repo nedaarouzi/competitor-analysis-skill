@@ -1,11 +1,6 @@
-# Competitor analysis skills
+# Competitor analysis skill
 
-Open skills that turn a **company name** and **three competitors** into a marketing competitor analysis you can act on.
-
-| Skill | What you get |
-|---|---|
-| [`competitor-dashboard`](skills/competitor-dashboard) | An **8-tab Excel ad intelligence dashboard**, built by a script so it looks the same every time. Start here. |
-| [`competitor-analysis`](skills/competitor-analysis) | A lighter 5-tab analysis (summary, competitors, messaging, gaps, sources). Plain text, no code. |
+An open skill that turns a **company name** and **three competitors** into a competitor ad intelligence dashboard in Excel, built by a script so it looks the same every time.
 
 ![Dashboard preview](docs/preview-budget.png)
 
@@ -24,7 +19,7 @@ The figures are estimates built from public ad-library data. They show direction
 
 ## Why the result is the same every time
 
-The agent does the research and writes a JSON file. A fixed script, [`build_dashboard.py`](skills/competitor-dashboard/scripts/build_dashboard.py), builds the workbook from it. The layout, colours, column widths and tab order live in that script, not in the agent's memory, so every agent and every run produces the same look.
+The agent does the research and writes a JSON file. A fixed script, [`build_dashboard.py`](skills/competitor-analysis/scripts/build_dashboard.py), builds the workbook from it. The layout, colours, column widths and tab order live in that script, not in the agent's memory, so every agent and every run produces the same look.
 
 ## Install
 
@@ -33,7 +28,7 @@ Copy the skill folder into your agent's skills folder. Copy the **whole folder**
 | Agent | Where it goes |
 |---|---|
 | Claude Code | `~/.claude/skills/` or `.claude/skills/` in your project |
-| Claude (claude.ai) | Zip the `competitor-dashboard` folder and upload it under Settings, Capabilities, Skills |
+| Claude (claude.ai) | Zip the `competitor-analysis` folder and upload it under Settings, Capabilities, Skills |
 | Codex | `~/.agents/skills/` or `.agents/skills/` in your project |
 | Any other agent | Point it at `AGENTS.md`, or paste `SKILL.md` into the chat or project instructions and make the folder available |
 
@@ -45,7 +40,7 @@ Folder locations differ between tools and change over time, so check your agent'
 
 Ask in plain language:
 
-> Build a competitor dashboard for Acme. Competitors: Beta, Gamma, Delta.
+> Run a competitor analysis for Acme. Competitors: Beta, Gamma, Delta.
 
 If you do not name competitors, the agent picks the 3 to 4 most direct ones and tells you why. Optional: add your market and one real number from your own data, such as your cost per lead.
 
@@ -53,8 +48,8 @@ If you do not name competitors, the agent picks the 3 to 4 most direct ones and 
 
 ```bash
 pip install -r requirements.txt
-python skills/competitor-dashboard/scripts/build_dashboard.py \
-  skills/competitor-dashboard/templates/input.example.json -o example.xlsx
+python skills/competitor-analysis/scripts/build_dashboard.py \
+  skills/competitor-analysis/templates/input.example.json -o example.xlsx
 ```
 
 The example uses fictional companies. A ready-built copy is in [`examples/`](examples).
