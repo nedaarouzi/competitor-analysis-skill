@@ -1,0 +1,503 @@
+{
+  "run_date": "2026-11-16",
+  "focal": {
+    "name": "Acme Hire",
+    "segment": "Illustrative example",
+    "tagline": "Hire in days, not months",
+    "pricing": "Subscription from £99/mo",
+    "positioning": "Self-serve hiring platform for UK small businesses that want to fill roles without an agency.",
+    "strength": "Fast time to first applicant and a simple price.",
+    "weakness": "Low brand awareness; paid search is the only channel at scale.",
+    "confidence": "medium",
+    "channels": {
+      "Google": {
+        "active": true,
+        "budget": [
+          4000,
+          6000
+        ],
+        "cpl": [
+          7,
+          9
+        ],
+        "profile": {
+          "angle": "Speed and price",
+          "copy": "Post a job in 5 minutes | From £99 a month | No agency fees",
+          "targeting": "Keyword themes: hire staff, post a job, recruitment software",
+          "creative": "Responsive search ads",
+          "cta": "Start free",
+          "insight": "Strongest channel; brand terms are under-protected."
+        },
+        "verified": true,
+        "remarketing": {
+          "audiences": "Site visitors, 30 days",
+          "tactic": "RLSA",
+          "budget": [
+            300,
+            500
+          ],
+          "message": "Finish posting your job",
+          "window": "30 days, capped at 5 per week",
+          "offer": "First job free",
+          "insight": "Small audience, high intent.",
+          "active": true
+        }
+      },
+      "Meta": {
+        "active": true,
+        "budget": [
+          1500,
+          2500
+        ],
+        "cpl": [
+          14,
+          18
+        ],
+        "profile": {
+          "angle": "Social proof",
+          "copy": "Join 2,000 UK businesses hiring with Acme",
+          "targeting": "Lookalike of customers, owners of small businesses",
+          "creative": "Static images, customer quotes",
+          "cta": "Learn more",
+          "insight": "Only 3 creatives live, so fatigue shows in rising CPL."
+        }
+      },
+      "LinkedIn": {
+        "active": false
+      },
+      "TikTok": {
+        "active": false
+      },
+      "Bing": {
+        "active": false
+      },
+      "YouTube": {
+        "active": false
+      },
+      "Reddit": {
+        "active": false
+      },
+      "DSP": {
+        "active": false
+      }
+    }
+  },
+  "competitors": [
+    {
+      "name": "Beta Jobs",
+      "tagline": "The UK's job board",
+      "pricing": "Pay per post from £150",
+      "positioning": "Large general job board with strong brand and volume.",
+      "strength": "Brand recognition and traffic.",
+      "weakness": "Expensive per post; generic ads.",
+      "confidence": "medium",
+      "channels": {
+        "Google": {
+          "active": true,
+          "budget": [
+            12000,
+            20000
+          ],
+          "cpl": [
+            8,
+            12
+          ],
+          "profile": {
+            "angle": "Scale and trust",
+            "copy": "Reach millions of candidates | Post a job today",
+            "targeting": "Broad hiring keywords and brand",
+            "creative": "Search plus display",
+            "cta": "Post a job",
+            "insight": "Dominates generic terms."
+          },
+          "remarketing": {
+            "audiences": "Site visitors, cart abandoners",
+            "tactic": "Display and RLSA",
+            "budget": [
+              1500,
+              2500
+            ],
+            "message": "Your job is waiting",
+            "window": "45 days",
+            "offer": "10% off first post",
+            "insight": "Heavy remarketing, discount-led.",
+            "active": true
+          }
+        },
+        "Meta": {
+          "active": true,
+          "budget": [
+            6000,
+            9000
+          ],
+          "cpl": [
+            10,
+            15
+          ],
+          "profile": {
+            "angle": "Volume",
+            "copy": "Thousands of applicants, one post",
+            "targeting": "Employers, small business interest",
+            "creative": "Carousel and video",
+            "cta": "Get started",
+            "insight": "Constant creative rotation."
+          }
+        },
+        "LinkedIn": {
+          "active": true,
+          "budget": [
+            3000,
+            5000
+          ],
+          "cpl": [
+            30,
+            45
+          ],
+          "profile": {
+            "angle": "Employer brand",
+            "copy": "Find talent where professionals are",
+            "targeting": "Hiring managers, HR titles",
+            "creative": "Sponsored content",
+            "cta": "Request demo",
+            "insight": "Mostly brand awareness."
+          }
+        },
+        "YouTube": {
+          "active": true,
+          "budget": [
+            2000,
+            3500
+          ],
+          "cpl": [
+            12,
+            18
+          ],
+          "profile": {
+            "angle": "Brand story",
+            "copy": "How Beta fills roles",
+            "targeting": "In-market for recruitment",
+            "creative": "15 and 30 second video",
+            "cta": "Learn more",
+            "insight": "Mid-funnel reach."
+          }
+        },
+        "Bing": {
+          "active": true,
+          "budget": [
+            1500,
+            2500
+          ],
+          "cpl": [
+            5,
+            8
+          ],
+          "profile": {
+            "angle": "Scale",
+            "copy": "Post a job today",
+            "targeting": "Mirrors Google",
+            "creative": "Search ads",
+            "cta": "Post a job",
+            "insight": "Copy of Google structure."
+          }
+        },
+        "TikTok": {
+          "active": false
+        },
+        "Reddit": {
+          "active": false
+        },
+        "DSP": {
+          "active": true,
+          "budget": [
+            2000,
+            3000
+          ],
+          "cpl": [
+            16,
+            22
+          ],
+          "profile": {
+            "angle": "Reach",
+            "copy": "Hiring made simple",
+            "targeting": "Retargeting and lookalike",
+            "creative": "Banner",
+            "cta": "Post a job",
+            "insight": "Open-web retargeting."
+          }
+        }
+      }
+    },
+    {
+      "name": "Gamma Talent",
+      "tagline": "AI matching for hiring teams",
+      "pricing": "Subscription from £199/mo",
+      "positioning": "AI candidate-matching tool aimed at growing companies.",
+      "strength": "Clear AI differentiator.",
+      "weakness": "Higher price, limited channels.",
+      "confidence": "medium",
+      "channels": {
+        "Google": {
+          "active": true,
+          "budget": [
+            5000,
+            8000
+          ],
+          "cpl": [
+            9,
+            13
+          ],
+          "profile": {
+            "angle": "AI matching",
+            "copy": "Hire smarter with AI | See matches in minutes",
+            "targeting": "Recruitment software, AI hiring",
+            "creative": "Search ads",
+            "cta": "Book a demo",
+            "insight": "Messaging is tech-led, not outcome-led."
+          },
+          "remarketing": {
+            "audiences": "Demo page visitors",
+            "tactic": "RLSA",
+            "budget": [
+              400,
+              700
+            ],
+            "message": "Still comparing options?",
+            "window": "30 days",
+            "offer": "Free trial",
+            "insight": "Targets late-stage visitors.",
+            "active": true
+          }
+        },
+        "LinkedIn": {
+          "active": true,
+          "budget": [
+            4000,
+            7000
+          ],
+          "cpl": [
+            28,
+            40
+          ],
+          "profile": {
+            "angle": "Efficiency for HR",
+            "copy": "Cut time to hire by 40%",
+            "targeting": "HR managers, company size 50 to 500",
+            "creative": "Single image and document ads",
+            "cta": "Book a demo",
+            "insight": "Strong B2B targeting."
+          },
+          "remarketing": {
+            "audiences": "Video viewers, 50%+",
+            "tactic": "Engagement retargeting",
+            "budget": [
+              500,
+              800
+            ],
+            "message": "See how matching works",
+            "window": "60 days",
+            "offer": "Case study",
+            "insight": "Nurtures the long cycle.",
+            "active": true
+          }
+        },
+        "Meta": {
+          "active": false
+        },
+        "TikTok": {
+          "active": false
+        },
+        "Bing": {
+          "active": false
+        },
+        "YouTube": {
+          "active": true,
+          "budget": [
+            1500,
+            2500
+          ],
+          "cpl": [
+            15,
+            22
+          ],
+          "profile": {
+            "angle": "Product demo",
+            "copy": "Watch AI match candidates",
+            "targeting": "Business owners, HR interest",
+            "creative": "Demo video",
+            "cta": "Try free",
+            "insight": "Product-led video."
+          }
+        },
+        "Reddit": {
+          "active": false
+        },
+        "DSP": {
+          "active": false
+        }
+      }
+    },
+    {
+      "name": "Delta Works",
+      "tagline": "Staff your shifts",
+      "pricing": "Free to post, pay per hire",
+      "positioning": "Flexible and shift-work hiring for hospitality and retail.",
+      "strength": "Free entry and a pay-on-success offer.",
+      "weakness": "Narrow audience and low-quality leads.",
+      "confidence": "medium",
+      "channels": {
+        "Google": {
+          "active": true,
+          "budget": [
+            3000,
+            5000
+          ],
+          "cpl": [
+            5,
+            8
+          ],
+          "profile": {
+            "angle": "Free to start",
+            "copy": "Post jobs free | Pay only when you hire",
+            "targeting": "Shift work, hospitality hiring",
+            "creative": "Search ads",
+            "cta": "Post free",
+            "insight": "Free angle drives volume."
+          },
+          "remarketing": {
+            "audiences": "Visitors who started a post",
+            "tactic": "RLSA",
+            "budget": [
+              200,
+              400
+            ],
+            "message": "Finish your free post",
+            "window": "14 days",
+            "offer": "Free",
+            "insight": "Short window.",
+            "active": true
+          }
+        },
+        "Meta": {
+          "active": true,
+          "budget": [
+            3000,
+            5000
+          ],
+          "cpl": [
+            6,
+            10
+          ],
+          "profile": {
+            "angle": "Speed for shifts",
+            "copy": "Fill tonight's shift",
+            "targeting": "Local business owners",
+            "creative": "Vertical video",
+            "cta": "Post free",
+            "insight": "Cheap leads of lower intent."
+          }
+        },
+        "TikTok": {
+          "active": true,
+          "budget": [
+            2000,
+            3500
+          ],
+          "cpl": [
+            4,
+            7
+          ],
+          "profile": {
+            "angle": "Relatable humour",
+            "copy": "POV: you need a chef by Friday",
+            "targeting": "Hospitality workers and managers",
+            "creative": "UGC-style video",
+            "cta": "Post free",
+            "insight": "Native creative performs."
+          }
+        },
+        "Reddit": {
+          "active": true,
+          "budget": [
+            500,
+            1000
+          ],
+          "cpl": [
+            8,
+            12
+          ],
+          "profile": {
+            "angle": "Community",
+            "copy": "Hiring for shifts? Try this",
+            "targeting": "r/restaurateur, r/smallbusiness",
+            "creative": "Text and image",
+            "cta": "Learn more",
+            "insight": "Low competition test."
+          }
+        },
+        "LinkedIn": {
+          "active": false
+        },
+        "Bing": {
+          "active": false
+        },
+        "YouTube": {
+          "active": false
+        },
+        "DSP": {
+          "active": false
+        }
+      }
+    }
+  ],
+  "opportunities": [
+    {
+      "priority": "Immediate",
+      "title": "Protect brand search terms",
+      "area": "Google",
+      "action": "Add exact-match brand campaigns and block competitor conquesting on the Acme name. Small budget, high protection.",
+      "impact": "Protects the lowest CPL traffic."
+    },
+    {
+      "priority": "Immediate",
+      "title": "Add RLSA bids on high-intent audiences",
+      "area": "Google",
+      "action": "Raise bids for visitors who started a job post. Two competitors already do this.",
+      "impact": "Better conversion from existing traffic."
+    },
+    {
+      "priority": "30-Day",
+      "title": "Launch Bing search with the Google structure",
+      "area": "Bing",
+      "action": "Import top Google campaigns to Microsoft Ads. Only one competitor invests here.",
+      "impact": "Cheap extra volume."
+    },
+    {
+      "priority": "30-Day",
+      "title": "Refresh Meta creative",
+      "area": "Meta",
+      "action": "Produce 6 new creatives using the customer-quote angle and test hooks weekly.",
+      "impact": "Lower CPL through less fatigue."
+    },
+    {
+      "priority": "30-Day",
+      "title": "Set up Meta and YouTube remarketing",
+      "area": "Meta / YouTube",
+      "action": "Build 30-day visitor audiences with a 'first job free' message. No competitor except Beta does this well.",
+      "impact": "Lifts conversion at low cost."
+    },
+    {
+      "priority": "60-Day",
+      "title": "Test Reddit as a first mover",
+      "area": "Reddit",
+      "action": "Run a £500 test in small-business communities with community-native copy.",
+      "impact": "Low-competition channel."
+    },
+    {
+      "priority": "60-Day",
+      "title": "Test TikTok short-form video",
+      "area": "TikTok",
+      "action": "Copy the native-creative style that works for Delta, aimed at owner-managers.",
+      "impact": "Cheap reach and leads."
+    }
+  ]
+}

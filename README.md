@@ -1,58 +1,73 @@
-# Competitor analysis skill
+# Competitor analysis skills
 
-An open skill that runs a marketing competitor analysis from two inputs: a **company name** and **three competitors**.
+Open skills that turn a **company name** and **three competitors** into a marketing competitor analysis you can act on.
 
-For each competitor it reports:
+| Skill | What you get |
+|---|---|
+| [`competitor-dashboard`](skills/competitor-dashboard) | An **8-tab Excel ad intelligence dashboard**, built by a script so it looks the same every time. Start here. |
+| [`competitor-analysis`](skills/competitor-analysis) | A lighter 5-tab analysis (summary, competitors, messaging, gaps, sources). Plain text, no code. |
 
-- the advertising they run, and on which platforms
-- their approximate budget
-- their approximate cost per acquisition
-- the messaging and angle of their ads
-- whether they run retargeting
+![Dashboard preview](docs/preview-budget.png)
 
-It also identifies the gaps and opportunities in the market, and delivers everything as a structured spreadsheet.
+## What the dashboard contains
 
-The figures are estimates built from public ad-library data. They show direction, not truth. They are very useful for generating ideas and for understanding the messaging competitors use. Give the skill one real number from your own data and the estimates improve.
+1. **Overview**: every company side by side, with positioning, strength, weakness and active channels
+2. **Your company's actuals**: your own performance by channel, clearly marked as estimated or verified
+3. **Budget estimates**: monthly spend ranges per competitor per channel, with totals
+4. **CPL estimates**: cost per lead per competitor per channel, colour-coded against benchmarks
+5. **Channel benchmarks**: category budget and CPL ranges for Google, Meta, LinkedIn, TikTok, Bing, YouTube, Reddit and DSP
+6. **Competitor profiles**: angle, ad copy, targeting, creative and CTA for each competitor on each channel
+7. **Remarketing**: audiences, tactics, messages and offers per competitor per channel
+8. **Opportunities**: 6 to 9 prioritised actions (Immediate, 30-Day, 60-Day)
 
-## Format
+The figures are estimates built from public ad-library data. They show direction, not truth. They are very useful for generating ideas and for understanding competitor messaging. Give the skill one real number from your own data and the estimates improve.
 
-The skill follows the open [Agent Skills](https://agentskills.io) format: a folder with a `SKILL.md` file (YAML frontmatter plus Markdown instructions). The skill is plain text. It has no code and no dependencies.
+## Why the result is the same every time
 
-```
-skills/competitor-analysis/SKILL.md
-AGENTS.md
-```
+The agent does the research and writes a JSON file. A fixed script, [`build_dashboard.py`](skills/competitor-dashboard/scripts/build_dashboard.py), builds the workbook from it. The layout, colours, column widths and tab order live in that script, not in the agent's memory, so every agent and every run produces the same look.
 
 ## Install
 
-Copy the `skills/competitor-analysis` folder into the skills folder of your agent.
+Copy the skill folder into your agent's skills folder. Copy the **whole folder** (it contains the script and reference files, not only `SKILL.md`).
 
 | Agent | Where it goes |
 |---|---|
-| Claude (Claude Code) | `~/.claude/skills/` or `.claude/skills/` in your project |
-| Claude (claude.ai) | Zip the `competitor-analysis` folder and upload it under Settings, Capabilities, Skills |
+| Claude Code | `~/.claude/skills/` or `.claude/skills/` in your project |
+| Claude (claude.ai) | Zip the `competitor-dashboard` folder and upload it under Settings, Capabilities, Skills |
 | Codex | `~/.agents/skills/` or `.agents/skills/` in your project |
-| Any other agent | If it does not support skills, paste `SKILL.md` into the chat or into its project instructions, or point the agent at `AGENTS.md` |
+| Any other agent | Point it at `AGENTS.md`, or paste `SKILL.md` into the chat or project instructions and make the folder available |
 
 Folder locations differ between tools and change over time, so check your agent's documentation.
+
+**Requirement:** the agent must be able to run Python 3.8 or later with `openpyxl` (`pip install openpyxl`). If it cannot run code, it will give you the JSON file and the one command that builds the dashboard.
 
 ## Use
 
 Ask in plain language:
 
-> Run a competitor analysis for Acme. Competitors: Beta, Gamma, Delta.
+> Build a competitor dashboard for Acme. Competitors: Beta, Gamma, Delta.
 
-Optional: add your market, the channel you care about, and one real number from your own data (for example your cost per acquisition).
+If you do not name competitors, the agent picks the 3 to 4 most direct ones and tells you why. Optional: add your market and one real number from your own data, such as your cost per lead.
+
+## Try the script without an agent
+
+```bash
+pip install -r requirements.txt
+python skills/competitor-dashboard/scripts/build_dashboard.py \
+  skills/competitor-dashboard/templates/input.example.json -o example.xlsx
+```
+
+The example uses fictional companies. A ready-built copy is in [`examples/`](examples).
 
 ## Limits
 
 - Estimates only. A person with judgement should check the numbers that matter before real budget moves.
-- Quality depends on the agent being able to browse public ad libraries. Where it cannot, it should say so rather than guess.
+- Quality depends on the agent being able to browse public ad libraries. Where it cannot, it should say so and mark values "not available" rather than guess.
 - Competitor analysis goes out of date quickly. Re-run it regularly.
 
 ## Contributing
 
-Improvements are welcome: new sources, extra output tabs, translations. Keep `SKILL.md` short, specific and free of company-confidential data.
+Improvements are welcome: new channels, sources, extra tabs, translations. Change the style in `build_dashboard.py` only, and keep `SKILL.md` short and free of company-confidential data.
 
 ## Licence
 

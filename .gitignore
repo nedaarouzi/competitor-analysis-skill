@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.DS_Store
+# generated dashboards (the example in examples/ is kept)
+/*.xlsx

@@ -1,0 +1,11 @@
+{
+  "_comment": "Category-level starting points in GBP. Used by build_dashboard.py for Tab 5 and for CPL colouring. Override per run with the 'benchmarks' key in the input file.",
+  "Google":   {"budget": [3000, 20000], "cpl": [3, 15],  "best_for": "High-intent search and broad display reach",            "note": "Search captures existing demand and is usually the highest-volume channel. Display and remarketing inflate volume but lower lead quality. Expect CPL to rise with brand-term competition."},
+  "Meta":     {"budget": [2000, 15000], "cpl": [5, 20],  "best_for": "Consumer and SMB demand generation, retargeting",       "note": "Creative drives results. Lead-form campaigns give cheap leads of lower intent. Frequent creative refresh is needed to hold CPL."},
+  "LinkedIn": {"budget": [1500, 12000], "cpl": [15, 60], "best_for": "B2B targeting by job title, seniority and company",     "note": "Highest CPL of the eight channels but the strongest firmographic targeting. Best for ABM and enterprise offers."},
+  "TikTok":   {"budget": [1000, 8000],  "cpl": [3, 12],  "best_for": "Younger audiences, short-form video, awareness",        "note": "Cheap reach and leads, but intent is lower. Native-looking creative outperforms polished ads."},
+  "Bing":     {"budget": [500, 6000],   "cpl": [3, 12],  "best_for": "Search with an older, desktop-heavy, higher-income skew", "note": "Lower volume than Google but often lower CPC. Competitors frequently under-invest here, so it is a cheap place to copy proven Google structure."},
+  "YouTube":  {"budget": [1000, 10000], "cpl": [8, 25],  "best_for": "Video storytelling, consideration, remarketing",        "note": "Works best as a mid-funnel and remarketing channel. Direct-response CPL is higher than search."},
+  "Reddit":   {"budget": [400, 4000],   "cpl": [7, 20],  "best_for": "Niche communities and technical or enthusiast audiences", "note": "Low competition and cheap clicks, but needs community-native tone. A good first-mover test channel."},
+  "DSP":      {"budget": [800, 8000],   "cpl": [10, 28], "best_for": "Programmatic reach, CTV and audience extension",        "note": "Useful for scale and remarketing across the open web. Attribution is weaker, so judge on assisted conversions."}
+}
